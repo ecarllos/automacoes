@@ -35,7 +35,21 @@ def LogarHap():
     pyautogui.write("197547") # Senha do SEC
     pyautogui.press(["tab","tab"]) # Vai pro campo de Enviar
     pyautogui.press("enter")
-    time.sleep(6) # Pause para eu clicar no botão de enviar    
+    time.sleep(1.5) # Pause para eu clicar no botão de enviar  
+    pyautogui.click(x=1577, y=244) # Clicar na tela parar poder scrollar
+    pyautogui.scroll(-500000) # Scrollar totalmente pra baixo
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-500000) 
+    pyautogui.scroll(200) # Scrollar pra cima até o botão ficar visível
+    pyautogui.click(x=629, y=160) # Clicar em avançar
+    pyautogui.click(x=850, y=484) # Etapa de confirmação extra
+    time.sleep(1.5) # esperar pra página carregar
+    pyautogui.scroll(1000) # Scrolla pra até a parte de cima da página
 
 
 def PegarCnpj():
