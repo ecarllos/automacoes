@@ -16,14 +16,19 @@ def CodPlanilha():
     pyautogui.press("right")
     pyautogui.press("right")
     pyautogui.press("right")
+    # pyautogui.press("right") # pegar o código odonto
     pyautogui.hotkey("ctrl" , "c") # Copiar o código
     pyautogui.hotkey("left")
     pyautogui.press("left")
     pyautogui.press("left")
     pyautogui.press("left")
+    # pyautogui.press("left") # pegar o código odonto
     pyautogui.hotkey("alt" , "tab") # Mudar para página do Hapvida
     time.sleep(1)
 
+
+def pegarSenha():
+    print("a")
 
 def LogarHap():
     pyautogui.PAUSE = 0.3
@@ -32,7 +37,8 @@ def LogarHap():
     pyautogui.press("tab") # Vai pro campo de senha
     time.sleep(0.5)
     pyautogui.press("tab")
-    pyautogui.write("197547") # Senha do SEC
+    # pyautogui.write("575887") # Senha do SEC
+    pegarSenha()
     pyautogui.press(["tab","tab"]) # Vai pro campo de Enviar
     pyautogui.press("enter")
     time.sleep(1.5) # Pause para eu clicar no botão de enviar  
@@ -48,7 +54,7 @@ def LogarHap():
     pyautogui.scroll(200) # Scrollar pra cima até o botão ficar visível
     pyautogui.click(x=629, y=160) # Clicar em avançar
     pyautogui.click(x=850, y=484) # Etapa de confirmação extra
-    time.sleep(1.5) # esperar pra página carregar
+    time.sleep(1) # esperar pra página carregar
     pyautogui.scroll(1000) # Scrolla pra até a parte de cima da página
 
 
