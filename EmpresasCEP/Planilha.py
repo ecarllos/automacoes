@@ -9,19 +9,27 @@ import sys
 # FUNÇÕES
 
 def CodPlanilha():
-    pyautogui.PAUSE = 0.3
+    pyautogui.PAUSE = 0.2
 
     pyautogui.press("down") # Abaixar para ir para célula do código da empresa
     pyautogui.press("right")
     pyautogui.press("right")
     pyautogui.press("right")
     pyautogui.press("right")
+    #SINDGEL
+    # pyautogui.press("right")
+    # pyautogui.press("right")
+    # pyautogui.press("right")
     # pyautogui.press("right") # pegar o código odonto
     pyautogui.hotkey("ctrl" , "c") # Copiar o código
     pyautogui.hotkey("left")
     pyautogui.press("left")
     pyautogui.press("left")
     pyautogui.press("left")
+    # SINDGEL
+    # pyautogui.press("left") 
+    # pyautogui.press("left")
+    # pyautogui.press("left")
     # pyautogui.press("left") # pegar o código odonto
     pyautogui.hotkey("alt" , "tab") # Mudar para página do Hapvida
     time.sleep(1)
@@ -32,24 +40,24 @@ def pegarSenha():
 
 def LogarHap():
     pyautogui.PAUSE = 0.3
+    pyautogui.press("f5")
     pyautogui.press(["tab","tab","tab","tab","tab","tab","tab"], interval=0.3) # Selecionar o label do código
     pyautogui.hotkey("ctrl" , "v") # Cola o código copiado na tela anterior
     pyautogui.press("tab") # Vai pro campo de senha
     time.sleep(0.5)
     pyautogui.press("tab")
-    # pyautogui.write("575887") # Senha do SEC
-    pegarSenha()
+    # pyautogui.write("575887") # Senha de João Pessoa
+    # pyautogui.write("197547") # senha SEC
+    # pyautogui.write("917923") # Senha Sindgel
+    pyautogui.write("281448")
+    # pegarSenha()
     pyautogui.press(["tab","tab"]) # Vai pro campo de Enviar
     pyautogui.press("enter")
     time.sleep(1.5) # Pause para eu clicar no botão de enviar  
     pyautogui.click(x=1577, y=244) # Clicar na tela parar poder scrollar
-    pyautogui.scroll(-500000) # Scrollar totalmente pra baixo
-    pyautogui.scroll(-500000) 
-    pyautogui.scroll(-500000) 
-    pyautogui.scroll(-500000) 
-    pyautogui.scroll(-500000) 
-    pyautogui.scroll(-500000) 
-    pyautogui.scroll(-500000) 
+    pyautogui.scroll(-900000) # Scrollar totalmente pra baixo
+    pyautogui.scroll(-900000) 
+
     pyautogui.scroll(-500000) 
     pyautogui.scroll(200) # Scrollar pra cima até o botão ficar visível
     pyautogui.click(x=629, y=160) # Clicar em avançar
