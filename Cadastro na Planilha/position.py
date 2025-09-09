@@ -17,6 +17,9 @@ time.sleep(2)
 
 # time.sleep(2)
 
+pyautogui.scroll(200) # Scrollar pra cima até o botão ficar visível
+pyautogui.click(x=629, y=160) # Clicar em avançar
+
 print(pyautogui.position())
 
 

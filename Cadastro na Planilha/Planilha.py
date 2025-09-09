@@ -47,9 +47,9 @@ def LogarHap():
     time.sleep(0.5)
     pyautogui.press("tab")
     # pyautogui.write("575887") # Senha de João Pessoa
-    # pyautogui.write("197547") # senha SEC
+    pyautogui.write("197547") # senha SEC
     # pyautogui.write("917923") # Senha Sindgel
-    pyautogui.write("281448")
+    # pyautogui.write("281448")
     # pegarSenha()
     pyautogui.press(["tab","tab"]) # Vai pro campo de Enviar
     pyautogui.press("enter")
