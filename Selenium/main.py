@@ -48,24 +48,32 @@ acoes = wait.until(EC.presence_of_element_located((By.ID, "B2441611845714781178"
 acoes.click()
 
 # Selecionar o botão de consultor
-trocaConsultor = wait.until(EC.presence_of_element_located((By.ID, "B4175794322982668587")))
+trocaConsultor = wait.until(EC.element_to_be_clickable((By.ID, "B4175794322982668587")))
 trocaConsultor.click()
 
-# Selecionar o label de consultores
-labelConsultor = wait.until(EC.presence_of_all_elements_located((By.ID, "P578_CONSULTOR_NOVO_lov_btn")))
-labelConsultor.click()
 
-# Selecionar o novo Consultor
-jorge = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "li[data-id='JORGE.FILHO']")))
-jorge.click()
 
-# helaine = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "li[data-id='HELAINE.BRITO']")))
-# helaine.click()
-# augusto = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "li[data-id='AUGUSTO.MATIAS']")))
-# augusto.click()
+# 🔘 Agora sim, clica no botão de LOV (aquele botãozinho ao lado do campo)
+# labelConsultor = wait.until(EC.element_to_be_clickable((By.ID, "P578_CONSULTOR_NOVO_lov_btn")))
+# labelConsultor.click()
 
-# Confirmar a troca de consultor
-confirmarTroca = wait.until(EC.presence_of_all_elements_located((By.ID, "B2496065396947439746")))
+botao = navegador.find_element(By.ID, "P578_CONSULTOR_NOVO_lov_btn")
+navegador.execute_script("arguments[0].scrollIntoView(true);", botao)
+navegador.execute_script("arguments[0].click();", botao)
+
+
+# ⏳ Esperar o dropdown abrir e selecionar o novo consultor
+opcao = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[contains(text(),'JORGE.FILHO')]")))
+opcao.click()
+
+# ✅ Confirmar a troca
+confirmarTroca = wait.until(EC.element_to_be_clickable((By.ID, "B2496065396947439746")))
 confirmarTroca.click()
 
-time.sleep(10)
+
+
+
+
+
+
+time.sleep(100)
