@@ -1,3 +1,6 @@
+import undetected_chromedriver as uc
+from selenium2df_locate_element import selenium2dfwait, locate_element
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -5,13 +8,31 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 
-# importar o navegador
-navegador = webdriver.Chrome()
+# Inicia o Chrome com detecção furtiva
+navegador = uc.Chrome()
+selenium2dfwait.driver = navegador
+
+
 
 wait = WebDriverWait(navegador, 40) # Pausa dinâmica que espera 10 seg. até que uma ação seja executada, caso contrário dará ERRO.
 
-# acessar um site
+
+
+
+
+# Abre o site
 navegador.get("https://app.simplificagestao.com.br/ords/r/api/simplifica/login_desktop")
+
+
+
+
+
+
+
+
+
+
+
 
 # colocar o navegador em tela cheia
 navegador.maximize_window()
@@ -43,23 +64,6 @@ botaoPesquisa.click()
 lupinhas = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'td[headers="lista_pessoa_LINK"] a')))
 lupinhas[0].click()
 
-# Selecionar o Campo de AÇÕES
-acoes = wait.until(EC.presence_of_element_located((By.ID, "B2441611845714781178")))
-acoes.click()
-
-# Selecionar o botão de consultor
-trocaConsultor = wait.until(EC.element_to_be_clickable((By.ID, "B4175794322982668587")))
-trocaConsultor.click()
-
-
-# Dá uma pausa curta pra lista abrir
-time.sleep(5)
-
-
-
-# ✅ Confirmar a troca
-confirmarTroca = navegador.find_element(By.ID, "B2496065396947439746")
-confirmarTroca.click()
 
 
 
@@ -67,4 +71,24 @@ confirmarTroca.click()
 
 
 
-time.sleep(100)
+
+
+
+
+
+
+
+
+# Retorna todos os elementos da página em formato DataFrame
+df_all = locate_element()
+
+# Filtra apenas elementos <a> (links)
+df_all, df_links = locate_element(
+    checkdf=lambda df: df.loc[df.aa_localName == 'a'],
+    query='*',
+    timeout=30,
+    withmethods=True
+)
+
+print(df_all.head())     # Mostra todos os elementos
+print(df_links.head())   # Mostra apenas os links
