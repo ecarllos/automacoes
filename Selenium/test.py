@@ -9,9 +9,22 @@ from selenium.webdriver.chrome.options import Options
 from selenium2df_locate_element import selenium2dfwait, locate_element
 import time
 
+import pandas as pd
+pd.set_option("display.max_rows", None)       # mostra todas as linhas
+pd.set_option("display.max_columns", None)    # mostra todas as colunas
+pd.set_option("display.width", 0)             # evita truncar na largura
+pd.set_option("display.max_colwidth", None)   # mostra o conteúdo completo das células
+
+from rich.console import Console
+console = Console()
+
+df_links = df_links if 'df_links' in locals() else None
+
 # Configuração do Chrome
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")
+chrome_options.add_argument("--log-level=3")  # 0=ALL, 1=INFO, 2=WARNING, 3=ERROR
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging']) # Remove logs desnecessários que aparecem no cmd
 
 navegador = webdriver.Chrome(service=Service(), options=chrome_options)
 selenium2dfwait.driver = navegador
