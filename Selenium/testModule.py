@@ -58,8 +58,11 @@ acoes = navegador.find_element(By.XPATH, f"//*[contains(normalize-space(text()),
 acoes.click()
 
 # Clica em troca de consultor
-# trocaConcultor = navegador.find_element(By.XPATH, f"//*[contains(normalize-space(text()), '{"Consultor"}')]") # aa_innertext
-# trocaConcultor.click()
+trocaConcultor = navegador.find_element(By.ID, "B4175794322982668587") 
+trocaConcultor.click()
+
+# botaoConsultor = navegador.find_element(By.ID, "P578_CONSULTOR_NOVO_CONTAINER")
+# botaoConsultor.click()
 
 # Retorna todos os elementos da página em formato DataFrame
 df_all = locate_element()
@@ -104,7 +107,7 @@ df_limpo = df[[c for c in colunas if c in df.columns]]
 df_limpo = df_limpo.dropna(how='all')
 
 # 5️⃣ Salva o resultado em dois formatos
-df_limpo.to_csv('elementos_limpos.csv', index=False, encoding='utf-8-sig')
+df_limpo.to_csv('elementos.csv', index=False, encoding='utf-8-sig')
 
 # 6️⃣ Mostra no terminal um resumo do que foi salvo
 print(f"Arquivo CSV e XLSX gerados com {len(df_limpo)} elementos úteis.")
