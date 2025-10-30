@@ -61,56 +61,60 @@ acoes.click()
 trocaConcultor = navegador.find_element(By.ID, "B4175794322982668587") 
 trocaConcultor.click()
 
-# botaoConsultor = navegador.find_element(By.ID, "P578_CONSULTOR_NOVO_CONTAINER")
-# botaoConsultor.click()
+time.sleep(2)  # Espera 2 segundos para garantir que a janela modal carregue
 
-# Retorna todos os elementos da página em formato DataFrame
-df_all = locate_element()
+botaoConsultor = navegador.find_element(By.ID, "P578_CONSULTOR_NOVO_CONTAINER")
+botaoConsultor.click()
 
-# Filtra apenas elementos <a> (links)
-df_all, df_but = locate_element(
-    checkdf=lambda db: db.loc[db.aa_localName == 'button'],
-    query='*',
-    timeout=30,
-    withmethods=True
-)
+time.sleep(2)  # Espera 2 segundos para garantir que a lista carregue
 
-df = df_but
+# # Retorna todos os elementos da página em formato DataFrame
+# df_all = locate_element()
 
-# 2️⃣ Lista das colunas úteis (as que realmente ajudam a entender o elemento)
-colunas = [
-    'role',               # função semântica (ex: button, link, checkbox)
-    'aa_innerText',       # texto interno visível
-    'tag',                # tipo de elemento (div, span, input, a, button, etc.)
-    'id',                 # id único (se existir)
-    'name',               # atributo name (muito usado em formulários)
-    'class',              # classes CSS (excelente pra identificar grupos de elementos)
-    'type',               # tipo de input (text, password, submit, etc.)
-    'text',               # texto interno visível do elemento
-    'aa_tagName',         # tipo do elemento (a, div, span, input, etc.)
-    'aa_id',              # id único (quando existe)
-    'aa_className',       # classes aplicadas (útil para identificar botões, textos, etc.)
-    'aa_textContent',     # texto bruto (inclui quebras e espaços)
-    'aa_href',            # link (se existir)
-    'aa_outerHTML',       # estrutura HTML completa do elemento
-    'screenshot_path',     # caminho da captura de tela
-    'value',              # valor de inputs e botões
-    'placeholder',        # placeholder de inputs
-    'aria-label',         # acessibilidade — frequentemente usado para identificar botões
-    'title'  
-]
+# # Filtra apenas elementos <a> (links)
+# df_all, df_but = locate_element(
+#     checkdf=lambda db: db.loc[db.aa_localName == 'button'],
+#     query='*',
+#     timeout=30,
+#     withmethods=True
+# )
 
-# 3️⃣ Mantém só essas colunas (as que realmente importam)
-df_limpo = df[[c for c in colunas if c in df.columns]]
+# df = df_but
 
-# 4️⃣ Remove linhas completamente vazias (às vezes aparecem)
-df_limpo = df_limpo.dropna(how='all')
+# # 2️⃣ Lista das colunas úteis (as que realmente ajudam a entender o elemento)
+# colunas = [
+#     'role',               # função semântica (ex: button, link, checkbox)
+#     'aa_innerText',       # texto interno visível
+#     'tag',                # tipo de elemento (div, span, input, a, button, etc.)
+#     'id',                 # id único (se existir)
+#     'name',               # atributo name (muito usado em formulários)
+#     'class',              # classes CSS (excelente pra identificar grupos de elementos)
+#     'type',               # tipo de input (text, password, submit, etc.)
+#     'text',               # texto interno visível do elemento
+#     'aa_tagName',         # tipo do elemento (a, div, span, input, etc.)
+#     'aa_id',              # id único (quando existe)
+#     'aa_className',       # classes aplicadas (útil para identificar botões, textos, etc.)
+#     'aa_textContent',     # texto bruto (inclui quebras e espaços)
+#     'aa_href',            # link (se existir)
+#     'aa_outerHTML',       # estrutura HTML completa do elemento
+#     'screenshot_path',     # caminho da captura de tela
+#     'value',              # valor de inputs e botões
+#     'placeholder',        # placeholder de inputs
+#     'aria-label',         # acessibilidade — frequentemente usado para identificar botões
+#     'title'  
+# ]
 
-# 5️⃣ Salva o resultado em dois formatos
-df_limpo.to_csv('elementos.csv', index=False, encoding='utf-8-sig')
+# # 3️⃣ Mantém só essas colunas (as que realmente importam)
+# df_limpo = df[[c for c in colunas if c in df.columns]]
 
-# 6️⃣ Mostra no terminal um resumo do que foi salvo
-print(f"Arquivo CSV e XLSX gerados com {len(df_limpo)} elementos úteis.")
+# # 4️⃣ Remove linhas completamente vazias (às vezes aparecem)
+# df_limpo = df_limpo.dropna(how='all')
+
+# # 5️⃣ Salva o resultado em dois formatos
+# df_limpo.to_csv('elementos.csv', index=False, encoding='utf-8-sig')
+
+# # 6️⃣ Mostra no terminal um resumo do que foi salvo
+# print(f"Arquivo CSV e XLSX gerados com {len(df_limpo)} elementos úteis.")
 
 
 
